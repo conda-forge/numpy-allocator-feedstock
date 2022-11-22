@@ -1,4 +1,4 @@
-{% set version = "1.1.2" %}
+{% set version = "1.1.3" %}
 
 package:
   name: numpy-allocator
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
-  sha256: a9bbe18590f387cac4dcbbb4b0207052d50a4c659555b68b80bfee611add2964
+  sha256: fc12c993579ac11d9a1eb2a450eea285410f880e24a1238256edec040842b4dc
   patches:
     # https://github.com/inaccel/numpy-allocator/issues/1
     # https://github.com/inaccel/numpy-allocator/commit/72afa47594c04920cdbe21919a27a28f478de7af
