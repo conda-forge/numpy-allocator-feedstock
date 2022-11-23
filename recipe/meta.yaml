@@ -7,10 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
   sha256: fc12c993579ac11d9a1eb2a450eea285410f880e24a1238256edec040842b4dc
-  patches:
-    # https://github.com/inaccel/numpy-allocator/issues/1
-    # https://github.com/inaccel/numpy-allocator/commit/72afa47594c04920cdbe21919a27a28f478de7af
-    - fix_initializer_for_windows.patch
 
 build:
   script:
