@@ -38,6 +38,7 @@ test:
     - numpy_allocator
   requires:
     - pip
+    - numpy 1.24
   commands:
     - pip check
 
