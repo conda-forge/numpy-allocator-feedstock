@@ -19,18 +19,15 @@ requirements:
   build:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-    - numpy 1.22                          # [build_platform != target_platform and py<311]
-    - numpy                               # [build_platform != target_platform and py>=311]
+    - numpy                               # [build_platform != target_platform]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
   host:
     - python
     - pip
     - setuptools
     - setuptools_scm
-    # must build with at least 1.22 since that is when the API was introduced
-    - numpy 1.22  # [py<311]
-    - numpy       # [py>=311]
+    - numpy
   run:
     - python
 
