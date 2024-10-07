@@ -7,38 +7,43 @@ package:
 source:
   url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
   sha256: 5126bc811253c64b16d5a7cd2308ffc5079fb427ceaef087696b83e669f0dc9a
+  patches:
+    # https://github.com/inaccel/numpy-allocator/pull/5
+    - numpy122_api.patch
 
 build:
   script:
     - rm pyproject.toml   # [unix]
     - del pyproject.toml  # [win]
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-    - numpy 1.22                          # [build_platform != target_platform and py<311]
-    - numpy                               # [build_platform != target_platform and py>=311]
+    - numpy                               # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
   host:
     - python
     - pip
     - setuptools
     - setuptools_scm
-    # must build with at least 1.22 since that is when the API was introduced
-    - numpy 1.22  # [py<311]
-    - numpy       # [py>=311]
+    - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}
+    # The API used at runtime was introduced in 1.22
+    - numpy >=1.22
 
 test:
   imports:
     - numpy_allocator
   requires:
     - pip
+    # test with various python versions
+    - numpy 1.22  # [py==310]
+    - numpy 1.26  # [py==311]
   commands:
     - pip check
 

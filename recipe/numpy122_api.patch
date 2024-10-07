@@ -1,0 +1,23 @@
+From 5914faccd1cfc62a268f50efb7264fc27a915c31 Mon Sep 17 00:00:00 2001
+From: Mark Harfouche <mark.harfouche@gmail.com>
+Date: Mon, 7 Oct 2024 00:15:07 -0400
+Subject: [PATCH] Try to fix recent numpy compilations
+
+---
+ setup.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/setup.py b/setup.py
+index 2685f50..d3bdd8b 100644
+--- a/setup.py
++++ b/setup.py
+@@ -26,6 +26,9 @@ def README():
+             include_dirs=[
+                 numpy.get_include(),
+             ],
++            extra_compile_args=[
++                '-DNPY_TARGET_VERSION=NPY_1_22_API_VERSION'
++            ],
+         ),
+     ],
+     classifiers=[
