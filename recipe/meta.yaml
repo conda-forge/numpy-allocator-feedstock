@@ -8,6 +8,7 @@ source:
   url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
   sha256: 5126bc811253c64b16d5a7cd2308ffc5079fb427ceaef087696b83e669f0dc9a
   patches:
+    # https://github.com/inaccel/numpy-allocator/pull/5
     - numpy122_api.patch
 
 build:
