@@ -16,7 +16,7 @@ build:
     - rm pyproject.toml   # [unix]
     - del pyproject.toml  # [win]
     - {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
 
 requirements:
   build:
