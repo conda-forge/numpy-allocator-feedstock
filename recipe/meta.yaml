@@ -1,22 +1,19 @@
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: numpy-allocator
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
-  sha256: 5126bc811253c64b16d5a7cd2308ffc5079fb427ceaef087696b83e669f0dc9a
-  patches:
-    # https://github.com/inaccel/numpy-allocator/pull/5
-    - numpy122_api.patch
+  url: https://pypi.io/packages/source/n/numpy-allocator/numpy_allocator-{{ version }}.tar.gz
+  sha256: 1a7a634c3b82246dad522879a5d88340c8619219e7d24d34b3a655b89cf544fc
 
 build:
   script:
     - rm pyproject.toml   # [unix]
     - del pyproject.toml  # [win]
     - {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
