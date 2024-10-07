@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/n/numpy-allocator/numpy-allocator-{{ version }}.tar.gz
   sha256: 5126bc811253c64b16d5a7cd2308ffc5079fb427ceaef087696b83e669f0dc9a
+  patches:
+    - numpy122_api.patch
 
 build:
   script:
@@ -38,7 +40,9 @@ test:
     - numpy_allocator
   requires:
     - pip
-    - numpy 1.22
+    # test with various python versions
+    - numpy 1.22  # [py==310]
+    - numpy 1.26  # [py==311]
   commands:
     - pip check
 
